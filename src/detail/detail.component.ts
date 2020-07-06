@@ -12,7 +12,7 @@ export class DetailComponent implements OnInit {
   summary: any = {};
   profile: any = {};
   evolution: any = {};
-  damage: any = {};
+  damage : any = {};
 
 constructor(private router: Router, private route: ActivatedRoute , private pokemonService: PokemonService) { }
 
