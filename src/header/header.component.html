@@ -1,0 +1,5 @@
+<ul  class="col-sm col-md  height100">
+  <li *ngFor="let link of navOptions" class="col-sm" [ngClass]=" router.url === link.path ? 'active' : '' ">
+       <a  [routerLink]="link.path" >{{link.label}}</a>
+  </li>
+</ul>
