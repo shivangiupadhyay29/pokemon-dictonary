@@ -1,0 +1,39 @@
+
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+
+.height100{
+  height: 100%;
+}
+
+.header-background{
+  background: black;
+}
+
+
+.height8{
+  height: 8%;
+}
+
+
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: aliceblue;
+}
+
+.shrink{
+  width: max-content;
+}
+
+.search-width{
+  max-width: 30%;
+}

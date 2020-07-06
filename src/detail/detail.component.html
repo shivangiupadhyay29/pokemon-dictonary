@@ -1,0 +1,115 @@
+<div class="container height100 flex">
+
+  <!--summary section-->
+      <div class="summary-container flex-block">
+          <div class="flex height100">
+              <div class="summary-header">
+                        <h2 class="center-title">{{summary.name}}</h2>
+              </div>
+              <div class="row height25 poketype-box">
+                <ul class="flex-row">
+                  <li *ngFor="let type of summary.types" class="list-decor-none" [style.background-color]="type.color">
+                     {{type.name}}
+                  </li>
+                </ul>
+                <div class="">
+                    <h3>{{"#"+summary.id}}</h3>
+                </div>
+              </div>
+              <div class="row height65 charts-margin">
+                      <div class="img-container"><img width="150px" height="200px" [src]="summary.image"/></div>
+                      <div class="chart-container">
+                        <div class="chart-box" *ngFor="let chart of  summary.stats">
+                                <div>{{chart.name}}</div>
+                                <div class="contain">
+                                  <div class="chart" [style.width]="chart.score+'%'" [style.background-color]="randomColor()" ></div>
+                                  <div>{{chart.score}}</div>
+                                </div>
+                        </div>
+                      </div>
+              </div>
+              <div class="row description">
+                <div class="title-weight">{{summary.title}}</div>
+                  <div class="text-weight">{{summary.text}}</div>
+              </div>
+          </div>
+      </div>
+
+
+      <!--profile section-->
+      <div class="profile-container flex-block">
+        <div class="flex height100">
+          <div class="summary-header">
+            <h2 class="center-title">{{'Profile'}}</h2>
+          </div>
+          <div class="container-profile" >
+                <div class="profile-item">
+                  <span class="profile-item-subitem title">Height</span>
+                  <span class="profile-item-subitem">{{profile.height+ ' m'}}</span>
+                </div>
+                <div class="profile-item">
+                  <span class="profile-item-subitem title">Weight</span>
+                  <span class="profile-item-subitem">{{profile.weight+' kg'}}</span>
+                </div>
+                <div class="profile-item">
+                  <span class="profile-item-subitem title">Catch Rate</span>
+                  <span class="profile-item-subitem">{{profile.catchRatio}}</span>
+                </div>
+                <div class="profile-item">
+                  <span class="profile-item-subitem title">Gender Ratio</span>
+                  <span class="profile-item-subitem">{{profile.genderRatio?.women}}<i class="fa fa-mars ico" aria-hidden="true"></i></span>
+                  <span class="profile-item-subitem">{{profile.genderRatio?.men}}<i class="fa fa-venus ico" aria-hidden="true"></i></span>
+                </div>
+                <div class="profile-item">
+                  <span class="profile-item-subitem title">Egg Groups</span>
+                  <span class="profile-item-subitem">{{profile.eggGroups}}</span>
+                </div>
+                <div class="profile-item">
+                  <span class="profile-item-subitem title">Hatch Steps</span>
+                  <span class="profile-item-subitem">{{profile.hatchSteps}}</span>
+                </div>
+                <div class="profile-item">
+                  <span class="profile-item-subitem title">Abilities</span>
+                  <span class="profile-item-subitem">{{profile.abilities}}</span>
+                </div>
+                <div class="profile-item">
+                  <span class="profile-item-subitem title">EVs</span>
+                  <span class="profile-item-subitem">{{profile.evs}}</span>
+                </div>
+          </div>
+        </div>
+        </div>
+
+          <!--evolutionary section-->
+        <div class="evolutionary-container flex-block">
+        <div class="flex height100">
+          <div class="summary-header">
+            <h2 class="center-title">{{'Evolutions'}}</h2>
+          </div>
+
+          <div class="flex align-center">
+            <div class="flex-row">
+                <img class="img-flex" [src]="evolution.image" width="200px" height="200px"/>
+                <i class="fa fa-arrow-right fa-5x" aria-hidden="true"></i>
+                <img class="img-flex" [src]="evolution.evolutionUrl"  width="200px" height="200px"/>
+            </div>
+            <p>{{evolution.text}}</p>
+          </div>
+
+        </div>
+        </div>
+
+      <!--damage section-->
+      <div class="damage-container flex-block">
+        <div class="flex height100">
+          <div class="summary-header damge-header ">
+            <h2 class="center-title">{{'Damage when attacked'}}</h2>
+          </div>
+          <div class="damage-container">
+                    <div  class="damage-item" [style.background-color]="randomColor()" *ngFor= "let effect of damage">
+                      <div class="block">{{effect}} </div>
+                    </div>
+          </div>
+        </div>
+      </div>
+</div>

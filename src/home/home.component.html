@@ -1,0 +1,19 @@
+<div class="container-height container-bx" >
+
+      <div class="pokemon-card" *ngIf="pokemonList.length >0; else  loading">
+            <div *ngFor="let pokemon of pokemonList" class="card card-box" >
+                    <app-pokemon-card [pokemon]="pokemon" (getPokemonDetails)="getPokemonDetails($event)"></app-pokemon-card>
+            </div>
+      </div>
+
+      <ng-template #loading class="loading-container">
+            <div class="loading-container">
+                <h1>{{'Loading pokemons....!!!'}}</h1>
+            </div>
+      </ng-template>
+
+        <div class="footer-container">
+              <app-footer class="flex" [previous]="previous" [next]="next" (getPrevious)="getPrevious($event)" (getNext)="getNext($event)"></app-footer>
+        </div>
+
+   <div>

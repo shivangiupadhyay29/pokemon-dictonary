@@ -1,0 +1,51 @@
+.center{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+ .container-height{
+  height: 100%;
+}
+
+
+/*cards style starts now
+*/
+.pokemon-card{
+  display:flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+
+.card-box{
+  padding:2%;
+  height: 200px;
+  margin: 1%;
+  width: 199px;
+  cursor:pointer;
+}
+
+.container-bx{
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-container{
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 5%;
+  margin-right: 1%;
+}
+
+.flex {
+  display:flex;
+}
+
+.loading-container{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height:100%;
+}
