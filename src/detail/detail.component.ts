@@ -21,7 +21,7 @@ constructor(private router: Router, private route: ActivatedRoute , private poke
       let details  = this.pokemonService.getPokemonDetails(+id);
       let species= this.pokemonService.getPokemonSpecies(+id);
       let evolutionary =  this.pokemonService.getPokemonEvolutionary(+id);
-      Promise.all([details, species, evolutionary]).then(result =>{
+      Promise.all([details, species, evolutionary]).then(result => {
           const { summary, profile, evolution, damage } = this.mapTheObjects(result);
           this.summary = summary;
           this.profile = profile;

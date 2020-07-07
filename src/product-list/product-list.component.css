@@ -1,0 +1,15 @@
+.box {
+  border: 1px solid black;
+  padding:1%;
+  margin:1%;
+}
+
+.wrap {
+  flex-wrap:wrap
+}
+
+.flex{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+}

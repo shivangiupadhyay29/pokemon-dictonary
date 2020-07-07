@@ -1,0 +1,21 @@
+.justice-end {
+  justify-content: flex-end;
+}
+
+.justice-space {
+  justify-content: space-between;
+  margin: 2em 2em;
+}
+
+.btn-primary {
+  margin-left: 1%;
+}
+.has-danger .form-control{
+  border-color:red;
+}
+.has-succes .form-control{
+  border-color:green;
+}
+.form-control-feedback{
+  color:red
+}

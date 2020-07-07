@@ -1,1 +1,14 @@
-<p>product-list works!</p>
+<div class="container">
+    <div class= "row wrap">
+
+      <div *ngFor="let item of list" class="box">
+                <div><img [src]="item.imageUrl" width="200px" height="200px"/></div>
+                <div><h3>{{item.name}}</h3></div>
+                <div class="flex">
+                  <span>{{item.price  | currency:"INR":"symbol-narrow" }}</span>
+                  <span>{{item.category}}</span>
+                </div>
+      </div>
+
+    </div>
+</div>

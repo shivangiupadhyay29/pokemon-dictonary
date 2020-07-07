@@ -1,49 +1,103 @@
-<!-- <form novalidate>
-
-          <div class="form-group">
-            <label>First</label>
-            <input type="text"class="form-control">
+<form [formGroup]="form" novalidate >
+    <div class="row justice-space">
+          <div class="form-group" [ngClass]="{
+            'has-danger': name.invalid && ( name.dirty || name.touched ),
+            'has-success': name.valid && ( name.dirty || name.touched )
+          }">
+            <label>Name</label>
+            <input type="text"class="form-control" formControlName="name">
+            <div class="form-control-feedback" *ngIf="name.errors && ( name.dirty || name.touched )">
+                  <p *ngIf="name.errors.required">Name is required</p>
+                  <p *ngIf="name.errors.pattern">Alphanumeric values are only acceptable</p>
+                  <p *ngIf="name.errors.minlength">Name must be {{name.errors.minlength.requiredLength}} characters long, we need another {{name.errors.minlength.requiredLength - name.errors.minlength.actualLength}} characters </p>
+            </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" [ngClass]="{
+            'has-danger': description.invalid && ( description.dirty || description.touched ),
+            'has-success': description.valid && ( description.dirty || description.touched )
+          }">
             <label>Description</label>
-            <input type="text" class="form-control">
-          </div>
+            <input type="text" class="form-control" formControlName="description">
+            <div class="form-control-feedback" *ngIf="description.errors && ( description.dirty || description.touched)">
+              <p *ngIf="description.errors.required">Description is required</p>
+              <p *ngIf="description.errors.pattern">Alphanumeric values are only acceptable</p>
+              <p *ngIf="description.errors.minlength">Description must be {{description.errors.minlength.requiredLength}} characters long, we need another {{description.errors.minlength.requiredLength - description.errors.minlength.actualLength}} characters </p>
+           </div>
+        </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{
+          'has-danger': price.invalid && ( price.dirty || price.touched ),
+          'has-success': price.valid && ( price.dirty || price.touched )
+        }">
           <label>Price</label>
-          <input type="text"class="form-control">
+          <input type="text"class="form-control" formControlName="price">
+          <div class="form-control-feedback" *ngIf="price.errors && ( price.dirty || price.touched )">
+              <p *ngIf="price.errors.required">Price is required</p>
+              <p *ngIf="price.errors.pattern">Price with 2 decimal places is required</p>
+              <p *ngIf="price.errors.minlength">Price must be {{price.errors.minlength.requiredLength}} characters long, we need another {{price.errors.minlength.requiredLength - price.errors.minlength.actualLength}} characters </p>
+          </div>
         </div>
+    </div>
 
-        <div class="form-group">
-          <label>Category</label>
-          <select class="form-control">
-            <option value="">Please select a language</option>
-          </select>
-        </div>
+    <div class="row justice-space">
+          <div class="form-group"  [ngClass]="{
+            'has-danger': category.invalid && ( category.dirty || category.touched ),
+            'has-success': category.valid && ( category.dirty || category.touched )
+          }">
+                <label>Category</label>
+                <select class="form-control" formControlName="category">
+                  <option value="">Please select a language</option>
+                  <option *ngFor="let c of categories"  [value]="c">{{c}}</option>
+                </select>
+                <div class="form-control-feedback" *ngIf="category.errors && ( category.dirty || category.touched )">
+                  <p *ngIf="category.errors.required">Category is required</p>
+              </div>
+              </div>
 
-        <div class="form-group">
-          <label>Image Url</label>
-          <input type="text"class="form-control">
-        </div>
+              <div class="form-group"  [ngClass]="{
+                'has-danger': imageUrl.invalid && ( imageUrl.dirty || imageUrl.touched ),
+                'has-success': imageUrl.valid && ( imageUrl.dirty || imageUrl.touched )
+              }">
+                <label>Image Url</label>
+                <input type="text"class="form-control" formControlName="imageUrl">
+                <div class="form-control-feedback" *ngIf="imageUrl.errors && ( imageUrl.dirty || imageUrl.touched)">
+                  <p *ngIf="imageUrl.errors.required">Image url is required</p>
+                  <p *ngIf="imageUrl.errors.pattern">Image url with any of the type among jpg, gif or png</p>
+              </div>
+              </div>
 
-        <div class="form-group">
-          <label>Phone Number</label>
-          <input type="text"class="form-control">
-        </div>
+              <div class="form-group" [ngClass]="{
+                'has-danger': phoneNumber.invalid && ( phoneNumber.dirty || phoneNumber.touched ),
+                'has-success': phoneNumber.valid && ( phoneNumber.dirty || phoneNumber.touched )
+              }">
+                <label>Phone Number</label>
+                <input type="text"class="form-control" formControlName="phoneNumber">
+                <div class="form-control-feedback" *ngIf="phoneNumber.errors && ( phoneNumber.dirty || phoneNumber.touched )">
+                  <p *ngIf="phoneNumber.errors.required">Phone Number is required</p>
+                  <p *ngIf="phoneNumber.errors.pattern">Must contain only numbers</p>
+                  <p *ngIf="phoneNumber.errors?.maxlength">Phone Number must be {{phoneNumber.errors?.maxlength?.requiredLength}} characters long </p>
+              </div>
+              </div>
 
-        <div class="form-group">
-          <label>Select</label>
-          <select class="form-control">
-            <option value="">Please select a language</option>
-          </select>
-        </div>
+              <div class="form-group">
+                <label>Select</label>
+                <select class="form-control" formControlName="select">
+                  <option value="">Please select a language</option>
+                  <option *ngFor="let type of numberTypes"  [value]="type">{{type}}</option>
+                </select>
+              </div>
 
-        <div class="form-group">
-            <button>Reset</button>
-            <button>Save</button>
-        </div>
+    </div>
 
-</form> -->
+    <!-- <div class="row justice-end">
+      <div class="form-group">
+          <button class="btn-primary" (click)="newProduct()">Add New Product</button>
+      </div>
+  </div> -->
 
-
+    <div class="row justice-end">
+                  <button class="btn-primary" (click)="onReset()">Reset</button>
+                  <button class="btn-primary" (click)="onSubmit()">Save</button>
+    </div>
+</form>

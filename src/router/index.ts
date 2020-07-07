@@ -7,12 +7,15 @@ import { CreateComponent } from '../create/create.component';
 import { AppComponent } from 'src/app/app.component';
 import { ProductListComponent } from 'src/product-list/product-list.component';
 
+import { CanActivateProductList } from './product-list';
+import { CanActivateCreateProduct } from './create-product';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'detail/:id', component: DetailComponent },
-  { path: 'create', component: CreateComponent },
-  { path: 'list', component: ProductListComponent },
+  { path: 'create', component: CreateComponent , canActivate: [CanActivateCreateProduct] },
+  { path: 'list', component: ProductListComponent, canActivate: [CanActivateCreateProduct, CanActivateProductList] },
   { path: '*', component: AppComponent }
 ];
 

@@ -1,4 +1,4 @@
-export const navigation = (isAdmin) => isAdmin ? [
+export const navigation = (isAdmin) => isAdmin ?  [
   {label: 'Pokemon', path: '/' },
   {label: 'Home', path: '/home'},
   {label: 'Detail', path: '/detail' , id: null},
