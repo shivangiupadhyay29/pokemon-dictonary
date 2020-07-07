@@ -18,6 +18,6 @@ Detail description of pokemon with charts and figures
 Create Product  
 Listing of Product  
 Routing Protected with Admin status  
-Search on home view of pokemon listing.  
+Search on home view  
 
 
