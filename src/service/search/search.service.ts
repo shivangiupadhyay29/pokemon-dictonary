@@ -16,4 +16,8 @@ export class SearchService {
       search(keyword: string) {
         this.searchKeywordSource.next(keyword);
       }
+
+      resetSearch() {
+        this.searchKeywordSource.next('');
+      }
 }
