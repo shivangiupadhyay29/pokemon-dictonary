@@ -19,28 +19,31 @@ export class HomeComponent implements OnInit, OnDestroy {
   species;
   evolutionary;
 
-  subscription: Subscription = this.searchService.searchKeywordSource.subscribe(
-    keyword => {
-      this.searchKeyword = keyword;
-    });
+  subscription: Subscription;
 
   constructor(private pokemonService: PokemonService, private searchService: SearchService, private router: Router) {
-    this.subscription = searchService.searchKeywordSource.subscribe(
-      keyword => {
-        this.searchKeyword = keyword;
-      });
   }
 
   ngOnChanges() {
   }
 
   ngOnInit(): void {
+    this.subscription = this.searchService.searchKeyword$.subscribe(
+      keyword => {
+        this.searchKeyword = keyword;
+        if (this.searchKeyword.length > 0) {
+          this.pokemonList = this.pokemonList.filter(ele => ele.name.toLowerCase().match(this.searchKeyword.toLowerCase())) ;
+        }
+      });
+
     this.pokemonService.getPokemonList().subscribe((data: IPokemon) => {
       this.previous = this.pokemonService.previous;
       this.next = this.pokemonService.next;
       // tslint:disable-next-line: max-line-length
-      if ((this.searchKeyword.length > 0 && this.searchKeyword.toLowerCase() === data.name.toLowerCase()) || this.searchKeyword.length === 0) {
+      if (this.searchKeyword.length === 0) {
         this.pokemonList.push(data);
+      } else if (data.name.toLowerCase().match(this.searchKeyword.toLowerCase())){
+          this.pokemonList.push(data);
       }
     });
   }
@@ -51,8 +54,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.previous = this.pokemonService.previous;
       this.next = this.pokemonService.next;
       // tslint:disable-next-line: max-line-length
-      if ((this.searchKeyword.length > 0 && this.searchKeyword.toLowerCase() === data.name.toLowerCase()) || this.searchKeyword.length === 0) {
+      if (this.searchKeyword.length === 0) {
         this.pokemonList.push(data);
+      } else if (data.name.toLowerCase().match(this.searchKeyword.toLowerCase())){
+          this.pokemonList.push(data);
       }
     });
   }
@@ -63,8 +68,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.previous = this.pokemonService.previous;
       this.next = this.pokemonService.next;
       // tslint:disable-next-line: max-line-length
-      if ((this.searchKeyword.length > 0 && this.searchKeyword.toLowerCase() === data.name.toLowerCase()) || this.searchKeyword.length === 0) {
+      if (this.searchKeyword.length === 0) {
         this.pokemonList.push(data);
+      } else if (data.name.toLowerCase().match(this.searchKeyword.toLowerCase())){
+          this.pokemonList.push(data);
       }
     });
   }

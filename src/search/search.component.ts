@@ -9,7 +9,6 @@ import { debounceTime, distinctUntilChanged } from "rxjs/operators";
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
-  providers: [SearchService]
 })
 export class SearchComponent implements OnInit {
   searchField: FormControl;
